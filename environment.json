@@ -1,0 +1,11 @@
+{
+    "staging": {
+        "apiUrl": "https://api.trello.com/1",
+        "users": {
+            "admin": {
+                "key": "",
+                "token": ""
+            }
+        }
+    }
+}
