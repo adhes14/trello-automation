@@ -3,7 +3,7 @@ Feature: Board
 
     It defines scenarios for Board feature
 
-    @001 @functional @smoke
+    @001 @functional @smoke @deleteBoard
     Scenario: A board can be created (001)
         Given the user sets the following body:
             | name | New board from cucumber |

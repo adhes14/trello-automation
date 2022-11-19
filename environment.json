@@ -3,8 +3,8 @@
         "apiUrl": "https://api.trello.com/1",
         "users": {
             "admin": {
-                "key": "013f63c4080c1a5886953aa213916800",
-                "token": "f6fb2ca5dc88e5c41c4cf65f1c61cc248804a5d4dcb699d6a8609d2d07391b85"
+                "key": "",
+                "token": ""
             }
         }
     }
