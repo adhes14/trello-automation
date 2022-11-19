@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "desc": {
+            "type": "string"
+        },
+        "descData": {
+            "type": "null"
+        },
+        "closed": {
+            "type": "boolean"
+        },
+        "idOrganization": {
+            "type": "string"
+        },
+        "idEnterprise": {
+            "type": "null"
+        },
+        "pinned": {
+            "type": "boolean"
+        },
+        "url": {
+            "type": "string"
+        },
+        "shortUrl": {
+            "type": "string"
+        },
+        "prefs": {
+            "type": "object"
+        },
+        "labelNames": {
+            "type": "object"
+        },
+        "limits": {
+            "type": "object"
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "desc",
+        "descData",
+        "closed",
+        "idOrganization",
+        "idEnterprise",
+        "pinned",
+        "url",
+        "shortUrl",
+        "prefs",
+        "labelNames",
+        "limits"
+    ]
+}

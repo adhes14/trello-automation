@@ -1,8 +1,8 @@
 module.exports = {
-    default: [
-        'tests/features/**/*.feature',
-        '--require tests/support/**/*.js',
-        '--format json:reports/cucumber_report.json',
-        '--publish-quiet'
-    ].join(' '),
+    default: {
+        paths: ['tests/features/**/*.feature'],
+        require: ['tests/support/**/*.js'],
+        format: ['progress-bar', 'json:./reports/cucumber-report.json', 'html:./reports/cucumber-report.html'],
+        publishQuiet: true
+    }
 };
