@@ -1,5 +1,11 @@
 {
-    "environment": "staging",
+    "environment": "uat",
+    "browser": "chrome",
+    "capabilities": {
+        "headless": false,
+        "maximazeWindow": true,
+        "windowSize": { "width": 1280, "height": 720}
+    },
     "explicitTimeout": 30000,
-    "log-level": "debug"
+    "log-level": {"default": "info", "console": "debug", "file": "info" }
 }

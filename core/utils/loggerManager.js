@@ -1,7 +1,7 @@
 const { getLogger, configure } = require("log4js");
 const ConfigurationManager = require("./ConfigurationManager");
 
-const loglevel = ConfigurationManager.setUp['log-level'] ?? "info";
+const loglevel = ConfigurationManager.setUp['log-level'];
 
 configure({
     appenders: {
@@ -15,18 +15,20 @@ configure({
     categories: {
         default: {
             appenders: ["console", "file"],
-            level: loglevel
+            level: loglevel.default
         },
         console: {
             appenders: ["console"],
-            level: loglevel
+            level: loglevel.console
         },
         file: {
             appenders: ["file"],
-            level: loglevel
+            level: loglevel.file
         }
     }
 });
 const logger = getLogger();
+const loggerConsole = getLogger("console");
+const loggerFile = getLogger("file");
 
-module.exports = logger;
+module.exports = { logger, loggerConsole, loggerFile };

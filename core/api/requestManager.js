@@ -1,6 +1,6 @@
 const axios = require("axios");
 const ConfigurationManager = require("../utils/ConfigurationManager");
-const logger = require('../utils/loggerManager');
+const { loggerConsole } = require('../utils/loggerManager');
 
 class RequestManager {
     async send(verb, endpoint, queryParams, body, headers) {
@@ -12,10 +12,10 @@ class RequestManager {
             data: body,
             validateStatus: undefined
         };
-        logger.debug(`Sending a ${verb} request to ${options.url}`);
+        loggerConsole.debug(`Sending a ${verb} request to ${options.url}`);
         const response = await axios.request(options);
-        logger.debug(`Response returned with ${response.status} code`);
-        logger.debug(response.data);
+        loggerConsole.debug(`Response returned with ${response.status} code`);
+        loggerConsole.debug(response.data);
         return response;
     }
 }

@@ -1,10 +1,10 @@
 const { After, Before } = require("@cucumber/cucumber");
-const logger = require("../../../core/utils/loggerManager");
+const { logger, loggerFile } = require("../../../core/utils/loggerManager");
 const boardApi = require("../../../main/api/boardApi");
 const listApi = require("../../../main/api/listApi");
 
 Before(function(scenario) {
-    logger.info(`Running ${scenario.pickle.uri} => Scenario: ${scenario.pickle.name}`);
+    loggerFile.info(`Running ${scenario.pickle.uri} => Scenario: ${scenario.pickle.name}`);
 });
 
 Before({tags: "@createBoard"}, async function() {
@@ -33,4 +33,8 @@ After ({tags: "@archiveList"}, async function() {
         await listApi.archive(this.list.id);
     else
         await listApi.archive(this.response.data.id);
+});
+
+After(function(scenario) {
+    loggerFile.info(`Result ${scenario.result.status}`);
 });

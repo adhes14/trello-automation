@@ -31,7 +31,7 @@ Feature: Board
         And the schema response is verified with "boardSchema"
 
     @004 @functional @smoke @createBoard @deleteBoard
-    Scenario: A board can be updated (003)
+    Scenario: A board can be updated (004)
         Given the user sets the following body:
             | name             | Updated board |
             | labelNames/green | done          |

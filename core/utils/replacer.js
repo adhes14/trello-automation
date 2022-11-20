@@ -1,4 +1,4 @@
-const logger = require("./loggerManager");
+const { loggerConsole } = require("./loggerManager");
 
 class Replacer {
     /**
@@ -22,7 +22,7 @@ class Replacer {
                 else
                     actualValue = actualValue[nestedKey] ?? '';
             });
-            logger.info(`Replacing values ${matchValue} to ${actualValue}`);
+            loggerConsole.debug(`Replacing values ${matchValue} to ${actualValue}`);
             valueReplaced = valueReplaced.replace(matchValue, actualValue);
         }
         return valueReplaced;
