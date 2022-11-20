@@ -5,7 +5,6 @@ const { expect } = require('expect');
 const { validateSchemaFromPath } = require("../../../core/utils/schemaValidator");
 const { buildPath } = require("../../../core/utils/pathBuilder");
 const { replaceSpecialString, replaceNestedValue } = require("../../../core/utils/replacer");
-const logger = require("../../../core/utils/loggerManager");
 
 Given("the user sets the following body:", function (dataTable) {
     const object = dataTable.rowsHash();
@@ -29,7 +28,6 @@ Then("the response status code should be {int}", function(expectedCodeStatus) {
 
 Then("the response body should have the following values:", function(table) {
     const tableValues = table.raw();
-    logger.debug(tableValues);
     const responseBody = this.response.data;
     let actualValue = '';
     for (const value of tableValues) {
@@ -38,7 +36,7 @@ Then("the response body should have the following values:", function(table) {
         } else {
             actualValue = responseBody[value[0]];
         }
-        expect(actualValue.toString()).toBe(value[1]);
+        expect(actualValue.toString()).toBe(replaceNestedValue(value[1], this));
     }
 });
 
