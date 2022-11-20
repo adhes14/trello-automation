@@ -2,8 +2,8 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const requestManager = require("../../../core/api/requestManager");
 const ConfigurationManager = require("../../../core/utils/ConfigurationManager");
 const { expect } = require('expect');
-const { cwd } = require('process');
 const { validateSchemaFromPath } = require("../../../core/utils/schemaValidator");
+const { buildPath } = require("../../../core/utils/pathBuilder");
 
 Given("the user sets the following body:", function (dataTable) {
     const object = dataTable.rowsHash();
@@ -29,6 +29,6 @@ Then("the response body should have the following values:", function(table) {
 });
 
 Then("the schema response is verified with {string}", function(schemaName) {
-    const schemaPath = cwd() + '/main/resources/' + schemaName + '.json';
+    const schemaPath = buildPath(`/main/resources/${schemaName}.json`);
     expect(validateSchemaFromPath(this.response.data, schemaPath)).toBeTruthy();
 });

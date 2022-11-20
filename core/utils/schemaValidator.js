@@ -3,8 +3,8 @@ const { readJson } = require("./fileReader");
 
 /**
  * Validate response schema
- * @param {Response} response 
- * @param {String} schemaPath 
+ * @param {Response} response
+ * @param {String} schemaPath
  * @returns Boolean
  */
 module.exports.validateSchemaFromPath = function(response, schemaPath) {
