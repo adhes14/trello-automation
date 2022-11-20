@@ -7,6 +7,13 @@ Before(function(scenario) {
     logger.info(`Running ${scenario.pickle.uri} => Scenario: ${scenario.pickle.name}`);
 });
 
+Before({tags: "@createBoard"}, async function() {
+    logger.info("Create board hook...");
+    const params = ConfigurationManager.environment.users['admin'];
+    const response = await requestManager.send('POST', '/boards', params, { name: "New board from hook"}, {});
+    this.board = response.data;
+});
+
 After ({tags: "@deleteBoard"}, async function() {
     logger.info("Delete board hook...");
     const params = ConfigurationManager.environment.users['admin'];

@@ -14,3 +14,8 @@ Feature: Board
             | closed | false                   |
             | pinned | false                   |
         And the schema response is verified with "boardSchema"
+
+    @002 @functional @smoke @createBoard
+    Scenario: A board can be deleted (002)
+        When the "admin" user sends a "DELETE" request to "/boards/(board.id)" endpoint
+        Then the response status code should be 200
