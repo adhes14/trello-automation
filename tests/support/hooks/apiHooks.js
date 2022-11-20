@@ -14,5 +14,8 @@ Before({tags: "@createBoard"}, async function() {
 
 After ({tags: "@deleteBoard"}, async function() {
     logger.info("Delete board hook...");
-    await boardApi.delete(this.response.data.id);
+    if (this.board)
+        await boardApi.delete(this.board.id);
+    else
+        await boardApi.delete(this.response.data.id);
 });

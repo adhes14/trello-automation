@@ -31,8 +31,14 @@ Then("the response body should have the following values:", function(table) {
     const tableValues = table.raw();
     logger.debug(tableValues);
     const responseBody = this.response.data;
+    let actualValue = '';
     for (const value of tableValues) {
-        expect(responseBody[value[0]].toString()).toBe(value[1]);
+        if (responseBody[value[0]] === undefined) {
+            actualValue = replaceNestedValue(`(response.data.${value[0]})`, this);
+        } else {
+            actualValue = responseBody[value[0]];
+        }
+        expect(actualValue.toString()).toBe(value[1]);
     }
 });
 

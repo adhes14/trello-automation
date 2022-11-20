@@ -53,7 +53,6 @@
         "url",
         "shortUrl",
         "prefs",
-        "labelNames",
-        "limits"
+        "labelNames"
     ]
 }

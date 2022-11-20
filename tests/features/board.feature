@@ -19,3 +19,27 @@ Feature: Board
     Scenario: A board can be deleted (002)
         When the "admin" user sends a "DELETE" request to "/boards/(board.id)" endpoint
         Then the response status code should be 200
+
+    @003 @functional @smoke @createBoard @deleteBoard
+    Scenario: A board can be requested (003)
+        When the "admin" user sends a "GET" request to "/boards/(board.id)" endpoint
+        Then the response status code should be 200
+        And the response body should have the following values:
+            | name   | New board from hook |
+            | closed | false               |
+            | pinned | false               |
+        And the schema response is verified with "boardSchema"
+
+    @004 @functional @smoke @createBoard @deleteBoard @wip
+    Scenario: A board can be updated (003)
+        Given the user sets the following body:
+            | name             | Updated board |
+            | labelNames/green | done          |
+        When the "admin" user sends a "PUT" request to "/boards/(board.id)" endpoint
+        Then the response status code should be 200
+        And the response body should have the following values:
+            | name             | Updated board |
+            | closed           | false         |
+            | pinned           | false         |
+            | labelNames.green | done          |
+        And the schema response is verified with "boardSchema"
