@@ -30,7 +30,7 @@ Feature: Board
             | pinned | false               |
         And the schema response is verified with "boardSchema"
 
-    @004 @functional @smoke @createBoard @deleteBoard @wip
+    @004 @functional @smoke @createBoard @deleteBoard
     Scenario: A board can be updated (003)
         Given the user sets the following body:
             | name             | Updated board |
@@ -43,3 +43,15 @@ Feature: Board
             | pinned           | false         |
             | labelNames.green | done          |
         And the schema response is verified with "boardSchema"
+
+    @005 @006 @007 @negative
+    Scenario Outline: A board cannot be requested <title> id (<id>)
+        When the "admin" user sends a "GET" request to "/boards/<invalidData>" endpoint
+        Then the response status code should be <statusCode>
+
+        Examples:
+            | id  | title               | invalidData              | statusCode |
+            | 005 | without an          |                          | 404        |
+            | 006 | with an invalid     | abc                      | 400        |
+            | 007 | with a non-existent | 637a09c36a35160189f11425 | 404        |
+
