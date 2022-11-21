@@ -4,6 +4,7 @@ const ConfigurationManager = require("../../core/utils/ConfigurationManager");
 class World {
     response;
     requestBody;
+    driver;
 
     constructor({ attach }) {
         this.attach = attach;

@@ -3,8 +3,8 @@
     "browser": "chrome",
     "capabilities": {
         "headless": false,
-        "maximazeWindow": true,
-        "windowSize": { "width": 1280, "height": 720}
+        "maximizeWindow": true,
+        "windowSize": { "width": 425, "height": 768}
     },
     "explicitTimeout": 30000,
     "log-level": {"default": "info", "console": "debug", "file": "info" }

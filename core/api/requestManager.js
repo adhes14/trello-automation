@@ -2,6 +2,9 @@ const axios = require("axios");
 const ConfigurationManager = require("../utils/ConfigurationManager");
 const { loggerConsole } = require('../utils/loggerManager');
 
+/**
+ * It manages http requests
+ */
 class RequestManager {
     async send(verb, endpoint, queryParams, body, headers) {
         const options = {

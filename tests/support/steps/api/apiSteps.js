@@ -1,10 +1,10 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
-const requestManager = require("../../../core/api/requestManager");
-const ConfigurationManager = require("../../../core/utils/ConfigurationManager");
+const requestManager = require("../../../../core/api/requestManager");
+const ConfigurationManager = require("../../../../core/utils/ConfigurationManager");
 const { expect } = require('expect');
-const { validateSchemaFromPath } = require("../../../core/utils/schemaValidator");
-const { buildPath } = require("../../../core/utils/pathBuilder");
-const { replaceSpecialString, replaceNestedValue } = require("../../../core/utils/replacer");
+const { validateSchemaFromPath } = require("../../../../core/utils/schemaValidator");
+const { buildPath } = require("../../../../core/utils/pathBuilder");
+const { replaceSpecialString, replaceNestedValue } = require("../../../../core/utils/replacer");
 
 Given("the user sets the following body:", function (dataTable) {
     const object = dataTable.rowsHash();
