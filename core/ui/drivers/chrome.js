@@ -12,7 +12,6 @@ const { Options } = require("selenium-webdriver/chrome");
  */
 async function chrome(capabilities) {
     const options = new Options();
-    console.log(Options.chrome());
     if (capabilities.headless) options.headless();
     if (capabilities.maximizeWindow) options.addArguments("--start-maximized");
     else options.windowSize(capabilities.windowSize);
