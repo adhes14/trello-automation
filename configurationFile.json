@@ -4,7 +4,8 @@
     "capabilities": {
         "headless": false,
         "maximizeWindow": true,
-        "windowSize": { "width": 425, "height": 768}
+        "windowSize": { "width": 425, "height": 768},
+        "excludeSwitches": ["enable-automation"]
     },
     "explicitTimeout": 30000,
     "log-level": {"default": "info", "console": "debug", "file": "info" }
