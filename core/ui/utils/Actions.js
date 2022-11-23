@@ -1,4 +1,4 @@
-const { loggerConsole } = require("../../utils/loggerManager");
+const { loggerConsole, logger } = require("../../utils/loggerManager");
 const DriverManager = require("../DriverManager");
 const Conditions = require("./Conditions");
 
@@ -33,6 +33,11 @@ class Actions extends DriverManager {
         loggerConsole.debug(`Getting text from: "${locator}"`);
         const element = await this.getWebElement(locator);
         return await element.getText();
+    }
+
+    static async takeScreenshot() {
+        logger.info('Screenshot has been taken');
+        return await this.driver.takeScreenshot();
     }
 }
 
