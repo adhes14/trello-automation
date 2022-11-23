@@ -28,6 +28,12 @@ class Actions extends DriverManager {
         await element.clear();
         await element.sendKeys(value);
     }
+
+    static async getText(locator) {
+        loggerConsole.debug(`Getting text from: "${locator}"`);
+        const element = await this.getWebElement(locator);
+        return await element.getText();
+    }
 }
 
 module.exports = Actions;

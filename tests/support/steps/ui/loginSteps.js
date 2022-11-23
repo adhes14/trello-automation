@@ -22,8 +22,7 @@ When('the user logs into Script with:', async function(dataTable) {
 
 Then('the error label should display {string}', async function(expectedResult) {
     const errorLabel = By.id('password-error');
-    const errorLabelElement = await Actions.getWebElement(errorLabel);
+    const actualResult = await Actions.getText(errorLabel);
 
-    const actualResult = await errorLabelElement.getText();
     expect(actualResult).toBe(expectedResult);
 });
