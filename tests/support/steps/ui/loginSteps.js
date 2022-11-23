@@ -1,6 +1,7 @@
 const { When, Then } = require("@cucumber/cucumber");
-const { By, until } = require("selenium-webdriver");
+const { By } = require("selenium-webdriver");
 const { expect } = require('expect');
+const Conditions = require("../../../../core/ui/utils/Conditions");
 
 When('the user logs into Script with:', async function(dataTable) {
     const user = dataTable.rowsHash();
@@ -15,7 +16,7 @@ When('the user logs into Script with:', async function(dataTable) {
     await userInputElement.sendKeys(user.username);
     await continueButtonElement.click();
 
-    await this.driver.wait(until.elementLocated(loginButton), 10000);
+    await Conditions.untilLocated(loginButton, 10000);
 
     const loginButtonElement = await this.driver.findElement(loginButton);
     await loginButtonElement.click();
