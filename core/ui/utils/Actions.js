@@ -15,6 +15,19 @@ class Actions extends DriverManager {
         const element = await this.getWebElement(locator);
         await element.click();
     }
+
+    static async rightClick(locator) {
+        loggerConsole.debug(`Right clicking on: "${locator}"`);
+        const element = await this.getWebElement(locator);
+        await this.driver.actions().contextClick(element).perform();
+    }
+
+    static async write(locator, value) {
+        loggerConsole.debug(`Writting "${value}" on "${locator}"`);
+        const element = await this.getWebElement(locator);
+        await element.clear();
+        await element.sendKeys(value);
+    }
 }
 
 module.exports = Actions;

@@ -11,9 +11,8 @@ When('the user logs into Script with:', async function(dataTable) {
     const continueButton = By.id('login');
     const loginButton = By.id('login-submit');
 
-    const userInputElement = await Actions.getWebElement(userInput);
 
-    await userInputElement.sendKeys(user.username);
+    await Actions.write(userInput, user.username);
     await Actions.clickOn(continueButton);
 
     await Conditions.untilLocated(loginButton, 10000);
