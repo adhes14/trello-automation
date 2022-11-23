@@ -12,15 +12,13 @@ When('the user logs into Script with:', async function(dataTable) {
     const loginButton = By.id('login-submit');
 
     const userInputElement = await Actions.getWebElement(userInput);
-    const continueButtonElement = await Actions.getWebElement(continueButton);
 
     await userInputElement.sendKeys(user.username);
-    await continueButtonElement.click();
+    await Actions.clickOn(continueButton);
 
     await Conditions.untilLocated(loginButton, 10000);
 
-    const loginButtonElement = await Actions.getWebElement(loginButton);
-    await loginButtonElement.click();
+    await Actions.clickOn(loginButton);
 });
 
 Then('the error label should display {string}', async function(expectedResult) {

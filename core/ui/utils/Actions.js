@@ -9,6 +9,12 @@ class Actions extends DriverManager {
         await Conditions.untilVisible(locator);
         return await this.driver.findElement(locator);
     }
+
+    static async clickOn(locator) {
+        loggerConsole.debug(`Clicking on: "${locator}"`);
+        const element = await this.getWebElement(locator);
+        await element.click();
+    }
 }
 
 module.exports = Actions;
